@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "638550950960",
+    "firebase_url": "https://heartbeat-cc92d.firebaseio.com",
+    "project_id": "heartbeat-cc92d",
+    "storage_bucket": "heartbeat-cc92d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:638550950960:android:583da2f3f5fbd7ac23d9f5",
+        "android_client_info": {
+          "package_name": "com.example.heartbeat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "638550950960-kl706a92v7nrn8aha3bvislhq0prvmvv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.heartbeat",
+            "certificate_hash": "09d0c00ab17d93b0f0eb7bc9813e18619ae11d6c"
+          }
+        },
+        {
+          "client_id": "638550950960-ojqfaqu17eq5gsgro91hp72snu5g8sv5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkoSlsm17uT1EEAhWyirtZrIAxpy7V3Wg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "638550950960-ojqfaqu17eq5gsgro91hp72snu5g8sv5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
