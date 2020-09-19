@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "638550950960-0jjfi35hf8c24fdv1qauufeagb6kq78g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.heartbeat",
+            "certificate_hash": "90a87f34f88b21c80c194051d519d596f1eb4dd5"
+          }
+        },
+        {
           "client_id": "638550950960-kl706a92v7nrn8aha3bvislhq0prvmvv.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
