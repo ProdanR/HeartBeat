@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity"
+    android:background="@drawable/background">
+
+
+
+
+  <Button
+      android:id="@+id/singupfb_button"
+      android:layout_width="311dp"
+      android:layout_height="50dp"
+      android:background="#FE8E7B  "
+      android:text="Log In with Facebook"
+      android:textColor="#FFFFFF"
+      android:textColorHighlight="#BA2D2D"
+      android:textColorHint="#CF0606"
+      android:textSize="18sp"
+      android:layout_centerHorizontal="true"
+      android:layout_alignParentBottom="true"
+      android:layout_marginBottom="50dp"
+      tools:ignore="MissingConstraints" />
+
+  <EditText
+      android:id="@+id/password_field"
+      android:layout_width="311dp"
+      android:layout_height="60dp"
+      android:layout_above="@id/singup_button"
+      android:layout_centerHorizontal="true"
+      android:layout_marginBottom="60dp"
+      android:ems="10"
+      android:hint="Password"
+      android:inputType="textPassword"
+      android:textSize="20sp" />
+
+  <EditText
+      android:id="@+id/email_field"
+      android:layout_width="311dp"
+      android:layout_height="60dp"
+      android:layout_above="@id/fullname_field"
+      android:layout_centerHorizontal="true"
+      android:layout_marginBottom="5dp"
+      android:ems="10"
+      android:hint="Email"
+      android:inputType="textEmailAddress"
+      android:textSize="20sp" />
+
+  <EditText
+      android:id="@+id/username_field"
+      android:layout_width="311dp"
+      android:layout_height="60dp"
+      android:layout_above="@id/password_field"
+      android:layout_centerHorizontal="true"
+      android:layout_marginBottom="5dp"
+      android:ems="10"
+      android:hint="Username"
+      android:inputType="textPersonName"
+      android:textSize="20sp" />
+
+  <EditText
+      android:id="@+id/fullname_field"
+      android:layout_width="311dp"
+      android:layout_height="60dp"
+      android:layout_above="@id/username_field"
+      android:layout_centerHorizontal="true"
+      android:layout_marginBottom="5dp"
+      android:ems="10"
+      android:hint="Full Name"
+      android:inputType="textPersonName"
+      android:textSize="20sp" />
+
+  <TextView
+      android:id="@+id/or_text"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_above="@id/singupfb_button"
+      android:layout_centerHorizontal="true"
+      android:layout_marginBottom="20dp"
+      android:text="------------- OR -------------"
+      android:textSize="30sp"
+      android:textStyle="bold" />
+  <Button
+      android:id="@+id/singup_button"
+      android:layout_width="311dp"
+      android:layout_height="50dp"
+      android:background="#FE8E7B  "
+      android:text="Sing Up"
+      android:textColor="#FFFFFF"
+      android:textColorHighlight="#BA2D2D"
+      android:textColorHint="#CF0606"
+      android:textSize="18sp"
+      android:layout_centerHorizontal="true"
+      android:layout_above="@id/or_text"
+      android:layout_marginBottom="20dp"
+      tools:ignore="MissingConstraints" />
+
+  <TextView
+      android:id="@+id/textView2"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="HeartBeat"
+      android:textSize="36sp"
+      android:textStyle="bold"
+      android:layout_centerHorizontal="true"
+      android:layout_above="@id/email_field"
+      android:layout_centerInParent="true"
+      android:layout_marginBottom="70dp"
+      />
+</RelativeLayout>
