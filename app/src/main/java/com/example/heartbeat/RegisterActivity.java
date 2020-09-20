@@ -55,76 +55,64 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void createNewAccount() {
-        String email_t= email.getText().toString();
-        String password_t= password.getText().toString();
+        final String email_t= email.getText().toString();
+        final String password_t= password.getText().toString();
         final String fullName_t= fullName.getText().toString();
         final String username_t= username.getText().toString();
 
-        sw=0;
-        if (TextUtils.isEmpty(email_t))
-        {
-            email.setError("Empty Field");
-            sw=1;
-        }
-        if(TextUtils.isEmpty(password_t))
-        {
-            password.setError("Empty Field");
-            sw=1;
-        }
-        if(TextUtils.isEmpty(fullName_t))
-        {
-            fullName.setError("Empty Field");
-            sw=1;
-        }
-        if(TextUtils.isEmpty(username_t))
-        {
-            username.setError("Empty Field");
-            sw=1;
-        }
-        checkEmailorUsernameAlreadyExists();
 
-        if(sw==0)
-            mAuth.createUserWithEmailAndPassword(email_t,password_t).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if(task.isSuccessful()) {
-
-                        HashMap userMap= new HashMap();
-                        userMap.put("username", username_t);
-                        userMap.put("fullname",fullName_t);
-
-                        currentUserId=mAuth.getCurrentUser().getUid();
-                        UsersRef.child(currentUserId).updateChildren(userMap).addOnCompleteListener(new OnCompleteListener() {
-                            @Override
-                            public void onComplete(@NonNull Task task) {
-                                if(task.isSuccessful())
-                                {
-                                    Toast.makeText(RegisterActivity.this, "Yeyyyy, you have a account", Toast.LENGTH_SHORT).show();
-                                }
+        if (TextUtils.isEmpty(email_t) || TextUtils.isEmpty(password_t) || TextUtils.isEmpty(fullName_t) || TextUtils.isEmpty(username_t))
+        {
+            Toast.makeText(getApplicationContext(), "Please complete all fields", Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            mAuth.fetchProvidersForEmail(email.getText().toString())
+                    .addOnCompleteListener(new OnCompleteListener<ProviderQueryResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<ProviderQueryResult> task) {
+                            if (!task.getResult().getProviders().isEmpty()) {
+                                Toast.makeText(getApplicationContext(), "Email already exists!", Toast.LENGTH_SHORT).show();
                             }
-                        });
+                            else
+                            {
 
-                    }
-                    else {
-                        Toast.makeText(RegisterActivity.this, "error", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
+                                mAuth.createUserWithEmailAndPassword(email_t,password_t).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<AuthResult> task) {
+                                        if(task.isSuccessful()) {
 
+                                            HashMap userMap= new HashMap();
+                                            userMap.put("username", username_t);
+                                            userMap.put("fullname",fullName_t);
 
-    }
+                                            currentUserId=mAuth.getCurrentUser().getUid();
+                                            UsersRef.child(currentUserId).updateChildren(userMap).addOnCompleteListener(new OnCompleteListener() {
+                                                @Override
+                                                public void onComplete(@NonNull Task task) {
+                                                    if(task.isSuccessful())
+                                                    {
+                                                        Toast.makeText(RegisterActivity.this, "Yeyyyy, you have a account", Toast.LENGTH_SHORT).show();
+                                                    }
+                                                }
+                                            });
 
-    private void checkEmailorUsernameAlreadyExists() {
-        mAuth.fetchProvidersForEmail(email.getText().toString())
-                .addOnCompleteListener(new OnCompleteListener<ProviderQueryResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<ProviderQueryResult> task) {
-                        if (task.getResult().getProviders().isEmpty()) {
-                            Toast.makeText(getApplicationContext(), "Email already exists!", Toast.LENGTH_SHORT).show();
-                            return;
+                                        }
+                                        else {
+                                            Toast.makeText(RegisterActivity.this, "error", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
+
+                            }
                         }
-                    }
-                });
-        sw=1;
+                    });
+
+        }
+        }
+
+
+
+
+
     }
-}
