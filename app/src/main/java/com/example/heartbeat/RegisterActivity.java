@@ -3,6 +3,7 @@ package com.example.heartbeat;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -87,12 +88,15 @@ public class RegisterActivity extends AppCompatActivity {
                                             userMap.put("fullname",fullName_t);
 
                                             currentUserId=mAuth.getCurrentUser().getUid();
+
                                             UsersRef.child(currentUserId).updateChildren(userMap).addOnCompleteListener(new OnCompleteListener() {
                                                 @Override
                                                 public void onComplete(@NonNull Task task) {
                                                     if(task.isSuccessful())
                                                     {
+                                                        SetUpActivity.setCurrentUserId(currentUserId);
                                                         Toast.makeText(RegisterActivity.this, "Yeyyyy, you have a account", Toast.LENGTH_SHORT).show();
+                                                        SendUserToSetUpActivity();
                                                     }
                                                 }
                                             });
@@ -112,7 +116,11 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
 
+    private void SendUserToSetUpActivity()
+    {
+        Intent registerIntent = new Intent(RegisterActivity.this, SetUpActivity.class);
+        startActivity(registerIntent);
 
-
+    }
 
     }
