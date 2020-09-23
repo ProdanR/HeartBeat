@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SetUpActivity"
+    android:background="@drawable/background">
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/profile_picture"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:src="@drawable/profile"
+        app:civ_border_color="#E0EEEE"
+        app:civ_border_width="2dp"
+        app:civ_shadow="true"
+        app:civ_shadow_color="#E0EEEE"
+        app:civ_shadow_radius="10dp" />
+
+
+    <EditText
+        android:id="@+id/profile_description"
+        android:layout_width="320dp"
+        android:layout_height="200dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Profile Description"
+        android:inputType="textMultiLine"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/profile_picture"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="WELCOME"
+        android:textSize="36sp"
+        android:textColor="#E0EEEE"/>
+
+    <TextView
+        android:id="@+id/help"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please select your profile picture and add your profile description!"
+        android:layout_below="@id/profile_description"
+        android:layout_centerHorizontal="true"
+        android:textSize="20dp"
+        android:textColor="#E0EEEE"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:id="@+id/done_button"
+        android:layout_width="311dp"
+        android:layout_height="50dp"
+        android:background="#FE8E7B  "
+        android:text="DONE"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#BA2D2D"
+        android:textColorHint="#CF0606"
+        android:textSize="18sp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/help"
+        android:layout_marginTop="20dp"
+        tools:ignore="MissingConstraints" />
+
+
+</RelativeLayout>
